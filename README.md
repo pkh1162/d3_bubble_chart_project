@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -1242,3 +1243,23 @@ It is reported that `npm run build` can fail on machines with no swap space, whi
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+=======
+# react_redux_boilerplate_pkh1162
+Simple boilerplate which introduces redux to facebookincubator/create-react-app. This repo adds a few redux packages to the super
+useful create-react-app established by facebookincubator. Included is a simple counter to give you an idea of how redux can be used
+with react to create a dynamic web application.
+
+facebookincubator/create-react-app boilerplate at: https://github.com/facebookincubator/create-react-app
+
+Redux packages included in repo:
+  -> redux          
+  -> redux-thunk
+  -> isomorphic-fetch
+  -> react-redux
+  
+  Links to each npm package found at:
+  -> https://www.npmjs.com/package/redux
+  -> https://www.npmjs.com/package/redux-thunk
+  -> https://www.npmjs.com/package/isomorphic-fetch
+  -> https://www.npmjs.com/package/react-redux
+>>>>>>> 17e839ee45240b0b9f25b38c7fdb06c3799ff950
