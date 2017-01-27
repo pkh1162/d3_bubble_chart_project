@@ -1,6 +1,6 @@
 =======
-# react_redux_boilerplate_pkh1162
-Simple boilerplate which introduces redux to facebookincubator/create-react-app. This repo adds a few redux packages to the super
+## react_redux_boilerplate_pkh1162
+Simple boilerplate which introduces redux to [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app). This repo adds a few redux packages to the super
 useful create-react-app established by facebookincubator. Included is a simple counter to give you an idea of how redux can be used
 with react to create a dynamic web application.
 
@@ -14,21 +14,12 @@ The web application should now be running on port 3000, open up http://localhost
 the install can take a few minutes.
 
 
-facebookincubator/create-react-app boilerplate at: https://github.com/facebookincubator/create-react-app
-
 Redux packages included in repo:
-  -> redux          
-  -> redux-thunk
-  -> isomorphic-fetch
-  -> react-redux
+  - [redux](https://www.npmjs.com/package/redux)          
+  - [redux-thunk](https://www.npmjs.com/package/redux-thunk)
+  - [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
+  - [react-redux](https://www.npmjs.com/package/react-redux)
   
-  Links to each npm package found at:
-  -> https://www.npmjs.com/package/redux
-  -> https://www.npmjs.com/package/redux-thunk
-  -> https://www.npmjs.com/package/isomorphic-fetch
-  -> https://www.npmjs.com/package/react-redux
+ 
 
 
-
-
->>>>>>> 17e839ee45240b0b9f25b38c7fdb06c3799ff950
