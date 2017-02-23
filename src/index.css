@@ -3,3 +3,69 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+td {
+  padding: 10px;
+  text-align: justify;
+}
+
+tr {
+  font-size: 14px;
+}
+
+.graphicsContainer {
+  display: flex;
+}
+
+.informationContainer {
+  flex: 2;
+}
+
+.svgContainer {
+  flex: 4;
+}
+
+
+span {
+  flex: 2;  
+  flex-shrink: 2;
+}
+
+
+#information {
+  padding: 10px;
+  background-color: #CCCCCC;
+  animation-name : slide-in;
+  animation-duration : 2s;
+  overflow: scroll;
+  max-height: 500px;
+}
+
+circle:hover {
+  animation-name : pop;
+  animation-duration : 1s;
+}
+
+
+.slide-appear {
+  transform : translateX(200%);
+}
+
+.slide-appear-active {
+   animation: slide-in 1000ms ease-out forwards;
+}
+
+
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform : translateX(100%);
+  }
+  to {
+    opacity : 1;
+    transform : translate(0%);
+  }
+}
+
+
