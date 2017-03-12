@@ -4,7 +4,7 @@ export const REQUESTING_PROFILE_DATA = 'REQUESTING_PROFILE_DATA';
 export const RECEIVED_PROFILE_DATA = 'RECEIVED_PROFILE_DATA';
 export const RECEIVE_SKILLS_DATA = 'RECEIVE_SKILLS_DATA';
 
-const PROFILES_URL = 'http://localhost:3001/';
+const PROFILES_URL = 'https://localhost:3001/';
 
 export const requestingProfileData = () => {
     return {

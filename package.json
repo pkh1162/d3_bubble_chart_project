@@ -1,8 +1,10 @@
 {
+  "homepage": "https://pkh1162.github.io/d3_bubble_chart_project",
   "name": "d3_bubble_chart_project",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "start-dev": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy" : "npm run build&&gh-pages -d build"
   }
 }
