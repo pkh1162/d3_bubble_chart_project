@@ -1,33 +1,33 @@
-import { variables } from './tempData'
+import { goodColour, badColour, commonColour, neutralColour } from './forces'
 
 
 
-//Returns array of objects common to both inputs
-let getCommon = (common1, common2, colorChange) => {
-
-    console.log("in get common", common1, common2);
-
-  return [...common1].filter(d => {
-    for (let i in common2){
-      if (d.name === common2[i].name){
+let getCommon = (profile1, profile2, colorChange) => {
+//Finds skills common to both profiles being compared, and turns the bubbles an appropriate colour.
+  return [...profile1].filter(d => {
+    for (let i in profile2){
+      if (d.skillName === profile2[i].skillName){
         if (colorChange){
             d.color = colorChange;
         }
-        return d.name == common2[i].name  
-      } 
-    }  
+        return d.skillName === profile2[i].skillName  
+      }
+    }
+     
   })
 }
 
 
-let getUnique = (unique, common, colorChange) => {
-  return [...unique].filter(d => {
-    for (let i in common){
-      if (d.name == common[i].name){
+let getUnique = (profile1, profile2, colorChange) => {
+//Finds skills unique to profile1, and change the bubble associated with that skill an appropriate color
+
+  return [...profile1].filter(d => {
+    for (let i in profile2){
+      if (d.skillName === profile2[i].skillName){
           return false;  
       }
-      else if (d.name !== common[i].name && i==common.length-1){
-          if (colorChange){
+      else if (d.skillName !== profile2[i].skillName && Number(i) === profile2.length-1){
+         if (colorChange){
               d.color = colorChange;
           }
           return d;
@@ -41,41 +41,40 @@ let getUnique = (unique, common, colorChange) => {
 
 
 
-export const dataManipulation = (takeThis, compareTo) => {
-
-    console.log("data pop:", takeThis, compareTo);
+export const sortBubbles = (skillsObject, takeThis, compareTo) => {
+    
     if (takeThis === compareTo){
-        return getCommon(variables[takeThis], variables[compareTo], 'yellow');
-        //return variables[takeThis];
+        return getCommon(skillsObject[takeThis], skillsObject[compareTo], neutralColour);
     }
     else {
-        //find common to both
-        let common = getCommon(variables[takeThis], variables[compareTo], 'white');
-        console.log("common to both are: ", common);
+        //finds skills common to both profiles
+        let common = getCommon(skillsObject[takeThis], skillsObject[compareTo], commonColour);
         
-        //find unique to take_this
-        let uniqueToTakeThis = getUnique(variables[takeThis], variables[compareTo], 'green');
-        console.log("unique to source: ", uniqueToTakeThis);
+        //find unique skills to first profile selected (takeThis)
+        let uniqueToTakeThis = getUnique(skillsObject[takeThis], skillsObject[compareTo], goodColour);
         
-        //find unique to compareTo
-        let uniqueToCompareTo = getUnique(variables[compareTo], variables[takeThis], 'red');
-        console.log("common to target are: ", uniqueToCompareTo);
+        //find unique skills to second profile selected (compareTo)
+        let uniqueToCompareTo = getUnique(skillsObject[compareTo], skillsObject[takeThis], badColour);
         
-        //add them to object, and return it
-        let all = [];
-        all = all.concat(common);
-        all = all.concat(uniqueToTakeThis);
-        all = all.concat(uniqueToCompareTo);
-        
-        return all;
+        //add common, uniqueToTakeThis, and uniqueToCompareTo and add them to a single array.
+        let allSkills = [];
+        allSkills = allSkills.concat(common);
+        allSkills = allSkills.concat(uniqueToTakeThis);
+        allSkills = allSkills.concat(uniqueToCompareTo);
+
+        return allSkills;
     }
 }
 
 
+export const findProfile = (nameIdentifer, profiles) => {
+//finds the profile associated with the nameIdentifier given
 
-//console.log(getUnique(Bob, Mary));  //Get unique to Bob compared to Mary
-//console.log(getUnique(Bob, Bob));   //Returns no data
-//console.log(getCommon(Bob, Mary));  //Get common between Mary and Bob
-//console.log(getCommon(Bob, Bob));   //Get all of Bobs data
+    for (let i in profiles){
+        if (profiles[i].name === nameIdentifer){
+            return profiles[i];
+        }
+    }
+}
 
-//console.log(pop);
+

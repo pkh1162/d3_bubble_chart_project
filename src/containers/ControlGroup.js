@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import * as d3 from "d3";
+
 import Controls from '../components/Controls';
 
 import { simulation, forceXSplitByCandidate, forceXSplit, forceRemoveBad, forceRemoveGood, forceXCombine } from '../common_code/forces';
-import * as d3 from "d3";
 
-import { pickThis, pickCompareTo, updateTakeThis, updateCompareTo } from '../actions/controlActions';
+import { updateTakeThis, updateCompareTo } from '../actions/controlActions';
+import { getProfile } from '../actions/reactSVGActions';
+import { getProfiles, getSkillsData } from '../actions/databaseAsync';
 
 
 
@@ -13,10 +16,12 @@ import { pickThis, pickCompareTo, updateTakeThis, updateCompareTo } from '../act
 
 
 class ControlGroup extends React.Component {
-    
-    
+
+    componentWillMount() {
+        this.props.getAllProfiles();        //Retrieves profiles from database and initialises selections to the first profile retrieved        
+      }
+
     byCandidate () {
-        console.log("in candidate, has been pressed");
         simulation
         .force("forceX", d3.forceX(forceXSplitByCandidate).strength(0.05))
         .alphaTarget(0.3)   
@@ -51,20 +56,22 @@ class ControlGroup extends React.Component {
         .restart()
     }
 
-    thisPicked (e) {
-        //console.log("this pick was selected", e.target.value);
-    }
-    
-    compareToThis (e) {
-        //console.log("compare to", e.target.value);
-    }
-
-
-
     render() {
-        return(
-            <Controls split={this.byTag} relayTakeThis={this.props.relayThisPick} relayCompareTo={this.props.relayCompareTo} candidate={this.byCandidate} byGood={this.byTheGood} byBad={this.byTheBad} mesh={this.mesh}/>
-        )
+        if (!this.props.requestingData){
+            return(
+                <Controls split={this.byTag} 
+                    profiles={this.props.profiles} 
+                    relayTakeThis={this.props.relayThisPick} 
+                    relayCompareTo={this.props.relayCompareTo} 
+                    candidate={this.byCandidate} byGood={this.byTheGood} 
+                    byBad={this.byTheBad} 
+                    mesh={this.mesh}/>
+            )
+        }
+        else {
+            return <h1>Still Loading</h1>
+        }
+        
     }
 }
 
@@ -72,29 +79,34 @@ class ControlGroup extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        profiles : state.reactSVGReducer.profiles,
+        requestingData : state.reactSVGReducer.requestingData,
         currentTakeThis: state.reactSVGReducer.takeThis,
         currentcompareTo: state.reactSVGReducer.compareToThis,
   }
 }
 
 
+
+
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         relayThisPick : (data) => {
-            //console.log("in dispatch of controls: ", data.target);
-            dispatch(updateTakeThis(data.target.value))
-            dispatch(pickThis(data.target.value))
+            dispatch(getProfile())                          //Sets current profile to null in order to get rid of candidate details
+            dispatch(updateTakeThis(data.target.value))     //Updates first selection and changes scale
+            dispatch(getSkillsData())                       //Updates bubbles to reflect both selections
         },
         relayCompareTo : (data) => {
-            //console.log("in dispatch of compare to:", data.target);
-            dispatch(updateCompareTo(data.target.value))
-            dispatch(pickCompareTo(data.target.value));
+            dispatch(getProfile())                          //See relayThisPick,  
+            dispatch(updateCompareTo(data.target.value))    //updates second selection.
+            dispatch(getSkillsData())                       ///////////////////////////////////////
+        },
+        getAllProfiles : () => {
+            dispatch(getProfiles());                        //Retrieves profiles from database and initialises selections to the first profile retrieved
         }
-
     }
 }
 
-export default connect(null, mapDispatchToProps)(ControlGroup);
+export default connect(mapStateToProps, mapDispatchToProps)(ControlGroup);
 
 
-//export default ControlGroup;

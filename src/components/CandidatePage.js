@@ -1,36 +1,63 @@
 import { connect } from 'react-redux'
 import React from 'react';
-import pic from '../images/obi_wan.jpg';
-import {profiles} from '../common_code/tempData';
-//import {actionCreator} from 'actionCreatorPath'
-
+import Information from '../components/Information';
+import default_pic from '../images/invisible_man.jpg';
 
 class CandidatePage extends React.Component {
-    constructor(props){
-        super(props);
-    }
+   
     render() {
-        let bubbleData = this.props.currentBubble;
-        if (bubbleData){
-            var profile = profiles[bubbleData.candidateName];
+        let profile = this.props.currentBubble;
+            console.log(profile)
+            {if (profile){
+                return (
+                <div>
+                    <div className='rowTwo'>
+                        <div className="detailsBlock">
+                            <div className="candidatePicture">
+                                { <img src={profile.image} width={150} height={150} alt='Candidate' role='presentation'/> || <img src={default_pic} width={200} height={200} alt='Default invisible man' role='presentation'/> }
+                            </div>            
+                            <div className="candidateDetails">
+                                <table>
+                                    <tbody>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td>{profile.name}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>{profile.email_address}</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone:</td>
+                                    <td>{profile.phone}</td>
+                                </tr>
+                                <tr>
+                                    <td>Github:</td>
+                                    <td>{profile.github}</td>
+                                </tr>
+                                <tr>
+                                    <td>Portfolio:</td>
+                                    <td>{profile.portfolio}</td>
+                                </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div className="statementBlock">
+                            <h2>Candidate Statement</h2>
+                            <p>Statement : {profile.statement}</p>
+                        </div>
+                    </div>
+
+                    <div className='rowThree'>    
+                        <div className="projectsBlock">
+                            <Information classProp='infoRowThree' data={profile}/>
+                        </div>
+                    </div>    
+                </div>
+                )
         }
-        
-        console.log("in candidate page", this.props.currentBubble);
-        
-            {if (bubbleData){
-                return (<div>
-            <h2>{bubbleData ? bubbleData.candidateName : 'hello'}</h2>
-            <img src={profiles[bubbleData.candidateName].image} width={200} height={200}/>
-            <p>Name : {profile.name}</p>
-            <p>Email : {profile.email_address}</p>
-            <p>Phone : {profile.phone}</p>
-            <p>Github : {profile.github}</p>
-            <p>Portfolio : {profile.portfolio}</p>
-            <p>Unique Projects : {profile.uniqueProjects.length}</p>
-            <p>Statement : {profile.statement}</p>
-            </div>)
-        }
-        else{
+        else {
         return null;
     }}
             
@@ -41,19 +68,9 @@ class CandidatePage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        currentBubble : state.reactSVGReducer.bubblePicked
+        currentBubble : state.reactSVGReducer.currentProfile
     }
 }
-
-/*
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        dispatch1: () => {
-            dispatch(actionCreator)
-        }
-    }
-}
-*/
 
 export default connect(mapStateToProps, null)(CandidatePage);
 

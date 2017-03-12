@@ -1,17 +1,7 @@
-const PICK_THIS = "PICK_THIS";
-const PICK_COMPARE_TO = "PICK_COMPARE_TO";
-const UPDATE_TAKE_THIS = "UPDATE_TAKE_THIS";
-const UPDATE_COMPARE_TO = "UPDATE_COMPARE_TO";
+export const UPDATE_TAKE_THIS = "UPDATE_TAKE_THIS";
+export const UPDATE_COMPARE_TO = "UPDATE_COMPARE_TO";
+export const PICK_INITIAL_BUBBLES = "PICK_INITIAL_BUBBLES"
 
-export const pickThis = (data) => ({
-    type : PICK_THIS,
-    data : data
-})
-
-export const pickCompareTo = (data) => ({
-    type : PICK_COMPARE_TO,
-    data : data
-})
 
 export const updateTakeThis = (data) => ({
     type : UPDATE_TAKE_THIS,

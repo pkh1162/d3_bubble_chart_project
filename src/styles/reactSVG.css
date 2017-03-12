@@ -1,0 +1,284 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  text-align: center;
+}
+
+td {
+  padding: 10px;
+  text-align: justify;
+}
+
+
+table {
+  margin-top : 20px;
+}
+
+tr {
+  font-size: 14px;
+  justify-content: center;
+}
+
+h2 {
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 10px;
+  margin-top : 5px;
+  text-decoration: underline;
+}
+
+
+
+
+
+/*/////////////Animations/////////////////////////////////////////////////////////*/
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform : translateX(100%);
+  }
+  to {
+    opacity : 1;
+    transform : translate(0%);
+  }
+}
+
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform : translateX(-100%);
+  }
+  to {
+    opacity : 1;
+    transform : translate(0%);
+  }
+}
+
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform : translateY(100%);
+  }
+  to {
+    opacity : 1;
+    transform : translate(0%);
+  }
+}
+
+
+/*//////////// End of Animations//////////////////////////////////////////////////////*/
+
+
+
+
+
+
+
+
+
+
+/*/////////// Controls////// //////////////////////////////////////////////////////////*/
+
+.controls {
+  background-color : lightgray;
+  border-bottom : 5px solid black;
+ /* font-family: 'Libre Franklin', sans-serif;*/
+}
+
+button {
+  min-width : 100px;
+  min-height : 90px;
+  background-color : #3656F3;
+  border : 3px solid black;
+  color : black;
+  font-size : 18px;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+select {
+  min-height : 90px;
+  min-width : 100px;
+  border : 3px solid black;
+  font-size : 18px;
+  vertical-align: bottom;
+  padding: 30px;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+button:hover {
+  border : black solid 2px;
+}
+
+.byCandidate:hover {
+  background: linear-gradient(60deg, #2BFF70, #2BFF70 33%, white 33%, white 66%, red 66%, red);
+}
+
+.byMesh:hover {
+  background-color : yellow;
+}
+
+.byGood:hover {
+    background-color : #2BFF70;
+}
+
+.byBad:hover {
+    background-color : red;
+}
+
+.byCommon:hover {
+    background-color : white;
+}
+
+/*//////////End of Controls////////////////////////////////////////////////////
+
+
+///////////////////////////*Row One///////////////////////////////////////////*/
+
+
+.graphicsContainer {
+  display: flex;
+  
+}
+
+.informationContainer {
+  flex: 2;
+  font-family: 'Space Mono', monospace;
+}
+
+
+#information {
+  padding: 10px;
+  animation-name : slide-in-right;
+  animation-duration : 2s;
+  max-height: 500px;
+}
+
+.informationRowOne {
+    overflow-y: auto;
+    flex : 2;
+    background-color: #FF2219;
+    border-left: black solid 5px;
+}
+
+
+
+
+.svgContainer {
+  flex: 4;
+}
+
+
+circle:hover {
+  animation-name : pop;
+  animation-duration : 1s;
+}
+
+
+
+/*///////////////End of Row One//////////////////////////////////////////////////////////*/
+
+
+
+
+/*Row Two/////////////////////////////////////////////////////////////////////*/
+.rowTwo {
+    display : flex;
+    max-height: 300px;
+}
+
+
+.detailsBlock {
+    display: flex;
+    flex : 2;
+    flex-wrap: wrap;
+    background-color : #2BFF70;
+    animation-name : slide-in-left;
+    animation-duration : 2s;
+    border-top : black 5px solid;
+    border-right : black 5px solid;
+    max-height : 300px;
+    overflow : auto;
+}
+
+.candidatePicture {
+  flex : 1;
+  text-align: left;
+  text-align : -moz-left;
+  
+  
+}
+
+.candidateDetails {
+  flex : 2;
+  text-align : left;
+  text-align : -moz-left;
+  overflow:auto;
+  font-size: 16px;
+  padding:20px;
+}
+
+.candidateDetails table td:first-child {
+  font-size : 16px;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+}
+
+
+.statementBlock {
+    background-color : #BC00E8;
+    flex : 3;
+    padding: 20px;
+    flex-wrap: wrap;
+    animation-name : slide-in-right;
+    animation-duration : 2s;
+    border-top : black 5px solid;
+    max-height : 300px;
+    overflow-y: auto;
+}
+
+.statementBlock h2 {
+  text-align : center;
+}
+
+.statementBlock p {
+  text-align : justify;
+  margin: 20px;
+  font-size: 16px;
+}
+
+
+/*////// End of Row Two/////////////////////////////////////////////////////////////////*/
+
+
+
+/* Row Three /////////////////////////////////////////////////////////////////////////*/
+
+.informationRowThree {
+    width: 100%;
+}
+
+
+
+
+.projectsBlock {
+    display : flex;
+    justify-content : center;
+    background-color : #14C5E8;
+    animation-name : slide-in-up;
+    animation-duration : 2s;
+    border-top : black 5px solid;
+    padding-bottom: 100px;
+    overflow-y : auto;
+}
+
+
+
+/* Row Three /////////////////////////////////////////////////////////////////////////////*/

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+
+import './styles/reactSVG.css';
 
 import ControlGroup from './containers/ControlGroup';
 import CandidatePage from './components/CandidatePage';
-import UpdateCounter from './containers/UpdateCounter';
 import ReactSVG from './containers/ReactSVG';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <ControlGroup/>    
         <ReactSVG/>
         <CandidatePage/>
+        <Footer/>
       </div>
     );
   }
