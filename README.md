@@ -11,7 +11,9 @@ To use this repo, first clone it using:
 The web application should now be running on port 3000, open up http://localhost:3000 in your browser to view. Note that
 the install can take a few minutes.
 
-  
+Note: To run locally, you need to change the databaseAsync file in actions, the comments detail how this can be done.
+
+For a database-less (and working deployed version) can be found at: https://pkh1162.github.io/d3_bubble_chart_project/  
  
 
 
