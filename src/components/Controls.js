@@ -24,4 +24,16 @@ const Controls = (props) => {
     )
 }
 
+
+
+Controls.propTypes = {
+  relayTakeThis : React.PropTypes.func.isRequired,
+  relayCompareTo : React.PropTypes.func.isRequired,
+  candidate : React.PropTypes.func.isRequired,
+  mesh : React.PropTypes.func.isRequired,
+  byGood : React.PropTypes.func.isRequired,
+  byBad : React.PropTypes.func.isRequired,
+  split : React.PropTypes.func.isRequired,
+}
+
 export default Controls;

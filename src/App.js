@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './styles/reactSVG.css';
 
 import ControlGroup from './containers/ControlGroup';
-import CandidatePage from './components/CandidatePage';
+import CandidatePage from './containers/CandidatePage';
 import ReactSVG from './containers/ReactSVG';
 import Footer from './components/Footer';
 

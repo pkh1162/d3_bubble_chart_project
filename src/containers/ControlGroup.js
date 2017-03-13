@@ -77,6 +77,16 @@ class ControlGroup extends React.Component {
 
 
 
+
+
+ControlGroup.propTypes = {
+    profiles : React.PropTypes.array.isRequired,
+    requestingData : React.PropTypes.bool,
+    currentTakeThis : React.PropTypes.string.isRequired,
+    currentcompareTo : React.PropTypes.string 
+}
+
+
 const mapStateToProps = (state, ownProps) => {
     return {
         profiles : state.reactSVGReducer.profiles,
@@ -85,8 +95,6 @@ const mapStateToProps = (state, ownProps) => {
         currentcompareTo: state.reactSVGReducer.compareToThis,
   }
 }
-
-
 
 
 const mapDispatchToProps = (dispatch, ownProps) => {

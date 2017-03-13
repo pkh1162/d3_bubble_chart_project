@@ -30,5 +30,9 @@ else {
   
 }
 
+Information.propTypes = {
+  data : React.PropTypes.object.isRequired
+}
+
 
 export default Information;

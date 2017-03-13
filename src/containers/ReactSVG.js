@@ -11,6 +11,8 @@ import { getProfiles, getSkillsData} from '../actions/databaseAsync';
 
 
 
+
+
 class ReactSVG extends React.Component {
     
     componentWillMount() {
@@ -102,8 +104,11 @@ class ReactSVG extends React.Component {
 
 
 
-
-
+ReactSVG.propTypes = {
+    data : React.PropTypes.array.isRequired,
+    currentBubble : React.PropTypes.object,
+    sim : React.PropTypes.object.isRequired
+}
 
 const mapStateToProps = (state, ownProps) => {
     return {

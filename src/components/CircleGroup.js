@@ -15,4 +15,13 @@ const CircleGroup = (props) => {
    )
 }
 
+CircleGroup.propTypes = {
+  id : React.PropTypes.number.isRequired,
+  data : React.PropTypes.object.isRequired,
+  x : React.PropTypes.number,
+  y : React.PropTypes.number,
+  radius : React.PropTypes.number.isRequired,
+  color : React.PropTypes.string,
+}
+
 export default CircleGroup;

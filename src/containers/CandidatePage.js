@@ -65,6 +65,9 @@ class CandidatePage extends React.Component {
     }
 }
 
+CandidatePage.propTypes = {
+    currentBubble : React.PropTypes.object
+}
 
 const mapStateToProps = (state, ownProps) => {
     return {
