@@ -7,7 +7,6 @@ class CandidatePage extends React.Component {
    
     render() {
         let profile = this.props.currentBubble;
-            console.log(profile)
             {if (profile){
                 return (
                 <div>
