@@ -73,7 +73,7 @@ class ReactSVG extends React.Component {
         
         return (
             
-            <div className='graphicsContainer' style={{textAlign: 'center'}}>
+            <div className='graphicsContainer' id='graphics' style={{textAlign: 'center'}}>
                 <svg className='svgContainer' id="react_SVG" onClick={this.bubbleClick} style={{width : width, height : height}}>      
                     {this.props.data.map((d, i) => {
                        

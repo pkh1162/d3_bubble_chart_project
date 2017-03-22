@@ -2,11 +2,12 @@ import * as d3 from "d3"
 
 export const height = 500;    
 
-export let width = document.body.clientWidth;           //width used when a bubble has been chosen
+export let width = window.innerWidth > 768 ? document.body.clientWidth : 768;           //width used when a bubble has been chosen
 export const baseWidth = document.body.clientWidth;     //baseWidth used when initiialised
 
-export let scaleCircle = d3.scaleSqrt().domain([0,20]).range([10,80]);           //scale used when bubble has been chosen
-export const baseScaleCircle = d3.scaleSqrt().domain([0,20]).range([10,80]);     //scale used when first initialised
+
+export let scaleCircle = d3.scaleSqrt().domain([0,20]).range([10, width/17]);           //scale used when bubble has been chosen
+export const baseScaleCircle = d3.scaleSqrt().domain([0,20]).range([10, width/17]);     //scale used when first initialised
 export const scaleL = d3.scaleLinear().domain([5,80]).range([6,25]);             //text scale
 
 
@@ -32,10 +33,14 @@ export const changeWidth = (bubblePicked) => {
   let lower = bubblePicked ? document.getElementById('react_SVG').width.animVal.value/60 : 20; 
   let higher = bubblePicked ? document.getElementById('react_SVG').width.animVal.value/30 : 40;    
 
-  
-  scaleCircle = bubblePicked ? d3.scaleSqrt().domain([0,20]).range([lower,higher]) : baseScaleCircle;  
-  width =  bubblePicked ? document.getElementById('react_SVG').width.animVal.value * 0.7 : baseWidth;
 
+  
+  if (document.getElementById('graphics').clientWidth > 1092){
+    scaleCircle = bubblePicked ? d3.scaleSqrt().domain([0,20]).range([lower,higher]) : baseScaleCircle;  
+    width =  bubblePicked ? document.getElementById('react_SVG').width.animVal.value * 0.7 : baseWidth;
+
+  }
+  
 }
 
 

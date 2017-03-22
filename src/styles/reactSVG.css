@@ -2,6 +2,10 @@ html {
   height: 100%;
 }
 
+#root {
+ 
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -17,12 +21,23 @@ td {
 
 
 table {
-  margin-top : 20px;
+  margin : 25px;
+  border-spacing: 0px;
+  border-collapse: collapse;
 }
 
 tr {
   font-size: 14px;
-  justify-content: center;
+  text-align: left;
+
+}
+
+td {
+  padding : 15px;
+}
+
+th {
+  padding : 15px;
 }
 
 h2 {
@@ -89,8 +104,23 @@ h2 {
 
 .controls {
   background-color : lightgray;
-  border-bottom : 5px solid black;
+  display : flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-width : 768px;
+  padding : 20px;
  /* font-family: 'Libre Franklin', sans-serif;*/
+}
+
+.dropDowns {
+  display : flex;
+  flex-wrap: nowrap;
+  
+}
+
+.controlButtons {
+  display : flex;
+  flex-wrap: nowrap;
 }
 
 button {
@@ -101,6 +131,9 @@ button {
   color : black;
   font-size : 18px;
   font-family: 'Libre Franklin', sans-serif;
+  padding: 25px;
+  margin : 5px;
+  border-radius: 10px;
 }
 
 select {
@@ -110,7 +143,9 @@ select {
   font-size : 18px;
   vertical-align: bottom;
   padding: 30px;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Space Mono', monospace;
+  border-radius: 10px;
+  margin : 5px;
 }
 
 button:hover {
@@ -145,7 +180,8 @@ button:hover {
 
 .graphicsContainer {
   display: flex;
-  
+  flex-wrap : wrap;
+  min-width : 768px;
 }
 
 .informationContainer {
@@ -155,24 +191,29 @@ button:hover {
 
 
 #information {
-  padding: 10px;
+  padding : 10px;
   animation-name : slide-in-right;
   animation-duration : 2s;
-  max-height: 500px;
+  max-height : 500px;
+  min-height : 200px;
+  min-width : 300px;
 }
 
 .informationRowOne {
     overflow-y: auto;
     flex : 2;
-    background-color: #FF2219;
-    border-left: black solid 5px;
+    background-color : #FF2219;
+    border-left : black solid 5px;
+    border-top : 5px solid black;
 }
 
 
 
 
 .svgContainer {
-  flex: 4;
+  flex : 4;
+  min-width : 768px;
+  border-top : 5px solid black; 
 }
 
 
@@ -191,7 +232,8 @@ circle:hover {
 /*Row Two/////////////////////////////////////////////////////////////////////*/
 .rowTwo {
     display : flex;
-    max-height: 300px;
+    flex-wrap: wrap;
+    min-width : 768px;
 }
 
 
@@ -204,23 +246,25 @@ circle:hover {
     animation-duration : 2s;
     border-top : black 5px solid;
     border-right : black 5px solid;
-    max-height : 300px;
-    overflow : auto;
+    min-width : 350px;
+    align-items: stretch;
 }
 
 .candidatePicture {
   flex : 1;
   text-align: left;
-  text-align : -moz-left;
-  
-  
+  text-align : -moz-left;  
+}
+
+.candidatePicture img {
+  margin : 4px;
+  border : black 2px solid;
 }
 
 .candidateDetails {
   flex : 2;
   text-align : left;
   text-align : -moz-left;
-  overflow:auto;
   font-size: 16px;
   padding:20px;
 }
@@ -240,8 +284,10 @@ circle:hover {
     animation-name : slide-in-right;
     animation-duration : 2s;
     border-top : black 5px solid;
-    max-height : 300px;
     overflow-y: auto;
+    min-width: 500px;
+    max-height: 450px;
+
 }
 
 .statementBlock h2 {
@@ -261,11 +307,10 @@ circle:hover {
 
 /* Row Three /////////////////////////////////////////////////////////////////////////*/
 
-.informationRowThree {
-    width: 100%;
+.rowThree {
+  min-width : 768px;
+  display: flex;
 }
-
-
 
 
 .projectsBlock {
@@ -277,6 +322,7 @@ circle:hover {
     border-top : black 5px solid;
     padding-bottom: 100px;
     overflow-y : auto;
+    flex : 1;
 }
 
 

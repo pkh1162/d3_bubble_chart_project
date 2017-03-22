@@ -11,7 +11,7 @@ class CandidatePage extends React.Component {
                 return (
                 <div>
                     <div className='rowTwo'>
-                        <div className="detailsBlock">
+                        <div className="detailsBlock">                            
                             <div className="candidatePicture">
                                 { <img src={profile.image} width={150} height={150} alt='Candidate' role='presentation'/> || <img src={default_pic} width={200} height={200} alt='Default invisible man' role='presentation'/> }
                             </div>            
