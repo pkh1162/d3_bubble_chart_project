@@ -109,6 +109,7 @@ h2 {
   flex-wrap: wrap;
   min-width : 768px;
   padding : 20px;
+  box-sizing: border-box;
  /* font-family: 'Libre Franklin', sans-serif;*/
 }
 
